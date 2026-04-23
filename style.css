@@ -1,45 +1,107 @@
 body {
   margin: 0;
-  background: radial-gradient(circle at center, #0a0f1f, #05070d);
   overflow: hidden;
+  background: radial-gradient(circle at center, #05070d, #02030a);
   font-family: Arial, sans-serif;
   color: white;
 }
 
-#garden {
-  width: 100vw;
-  height: 100vh;
-  position: relative;
+/* UI PANEL */
+#panel {
+  position: fixed;
+  left: 15px;
+  top: 15px;
+  background: rgba(20,20,40,0.6);
+  padding: 15px;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  width: 180px;
 }
 
-/* Mushroom style */
-.mushroom {
-  position: absolute;
-  width: 30px;
-  height: 30px;
-  background: radial-gradient(circle, #ff4fd8, #7a00ff);
-  border-radius: 50% 50% 40% 40%;
-  transform: scale(0);
-  animation: grow 0.4s forwards;
-  cursor: pointer;
-  box-shadow: 0 0 15px rgba(255, 79, 216, 0.8);
+#panel h2 {
+  margin-top: 0;
 }
 
-/* Grow animation */
-@keyframes grow {
-  to {
-    transform: scale(1);
-  }
+.fact {
+  margin-top: 10px;
+  font-size: 13px;
+  opacity: 0.8;
 }
 
-/* Message box */
-#message {
+/* UNLOCK MESSAGE */
+#unlock {
   position: fixed;
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(0,0,0,0.6);
-  padding: 10px 20px;
-  border-radius: 10px;
-  backdrop-filter: blur(5px);
+  background: rgba(50,0,80,0.7);
+  padding: 15px 25px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px #ff4fd8;
+}
+
+.hidden {
+  display: none;
+}
+
+/* GARDEN */
+#garden {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+}
+
+/* MUSHROOM */
+.mushroom {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  animation: grow 0.4s forwards;
+}
+
+.mushroom::after {
+  content: "";
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 12px;
+  background: #ddd;
+  border-radius: 3px;
+}
+
+@keyframes grow {
+  to { transform: scale(1); }
+}
+
+/* FROG */
+#frog {
+  position: absolute;
+  font-size: 28px;
+  pointer-events: none;
+  transition: all 0.4s linear;
+}
+
+/* CANVAS CONNECTIONS */
+#connections {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* PARTICLES */
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: white;
+  opacity: 0.2;
+  border-radius: 50%;
+  animation: float 6s linear infinite;
+}
+
+@keyframes float {
+  from { transform: translateY(0); }
+  to { transform: translateY(-100vh); }
 }
