@@ -1,14 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Mushroom Garden</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Magical Mushroom Garden</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+<div id="ui">
+  <div id="panel">
+    <h2>Garden Stats</h2>
+    <p>🍄 Mushrooms: <span id="count">0</span></p>
+    <p>🐸 Collected: <span id="collected">0</span></p>
+    <p class="fact" id="fact">Click to grow mushrooms</p>
+  </div>
+
+  <div id="unlock" class="hidden">
+    ✨ Special Message Unlocked ✨<br>
+    You make things feel a little more magical
+  </div>
+</div>
+
+<canvas id="connections"></canvas>
 <div id="garden"></div>
-<div id="message">Click to grow mushrooms 🍄</div>
+<div id="frog">🐸</div>
 
 <script src="script.js"></script>
 </body>
